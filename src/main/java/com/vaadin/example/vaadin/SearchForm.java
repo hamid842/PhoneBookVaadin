@@ -69,7 +69,6 @@ public class SearchForm extends FormLayout {
 
     private void initQuickSearchArea(HorizontalLayout quickSearchArea) {
         Button quickSearchButton = new Button("Quick search");
-
         //
         quickSearchButton.setIcon(VaadinIcon.SEARCH.create());
         quickSearchButton.addClickShortcut(Key.ENTER);
@@ -92,10 +91,7 @@ public class SearchForm extends FormLayout {
         quickSearchValue.setPlaceholder("Filter By ...");
         quickSearchBirthDate.setPlaceholder("Filter By ...");
 
-        quickSearchValue.setValueChangeMode(ValueChangeMode.ON_CHANGE);
-        quickSearchValue.addValueChangeListener(e -> quickSearch(quickSearchValue.getValue()));
-        //
-        quickSearchButton.addClickListener(e -> quickSearch(quickSearchValue.getValue()));
+        quickSearchValue.setValueChangeMode(ValueChangeMode.ON_BLUR);
         //
         quickSearchArea.setSizeFull();
         quickSearchArea.setAlignItems(FlexComponent.Alignment.END);
@@ -127,15 +123,10 @@ public class SearchForm extends FormLayout {
     public List<Customer> quickSearch(String filter) {
         List<Customer> arrayList = customerService.findAll();
         String currentSearchItem = quickSearchItem.getValue().toString();
-        System.out.println("***" + currentSearchItem);
-        if (QuickSearchItem.FirstName.equals(currentSearchItem)) {
-            List<Customer> a = arrayList.stream()
-                    .filter(it -> it.getFirstName().equals(customer.getFirstName()))
+        if (QuickSearchItem.FirstName.toString().equals(currentSearchItem)) {
+            return arrayList.stream()
+                    .filter(it -> it.getFirstName().equals(filter))
                     .collect(Collectors.toList());
-
-            for (Customer c : a) {
-                System.out.println(c);
-            }
         }
 //        else if (QuickSearchItem.LastName.equals(currentSearchItem)) {
 //
