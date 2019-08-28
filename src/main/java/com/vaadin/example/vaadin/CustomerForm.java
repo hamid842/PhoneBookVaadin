@@ -15,14 +15,10 @@ public class CustomerForm extends FormLayout {
     private TextField lastName = new TextField("Last name");
     private ComboBox<CustomerStatus> status = new ComboBox<>("Status");
     private DatePicker birthDate = new DatePicker("Birthdate");
-
     private Button save = new Button("Save");
     private Button delete = new Button("Delete");
-
     private Binder<Customer> binder = new Binder<>(Customer.class);
-
     private MainView mainView ;
-
     private CustomerService customerService = CustomerService.getInstance() ;
 
     public CustomerForm(MainView mainView) {
