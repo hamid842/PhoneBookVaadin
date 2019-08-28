@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="becc521b-4911-47bd-b217-45895205b798" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3457adea-6518-403f-a96f-39dd167feea6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/CustomerForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/CustomerForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/SearchForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vaadin/example/vaadin/SearchForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/webapp-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/webapp-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/webapp-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/webapp-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp.iml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +39,7 @@
   <component name="ProjectId" id="1PsJxzcZFWf8x5094x7zwMAIn2s" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../VAADIN/PhoneBookVaadin" />
     <property name="project.structure.last.edited" value="Project" />
@@ -76,7 +63,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="becc521b-4911-47bd-b217-45895205b798" name="Default Changelist" comment="" />
+      <changelist id="3457adea-6518-403f-a96f-39dd167feea6" name="Default Changelist" comment="" />
       <created>1566657120410</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
