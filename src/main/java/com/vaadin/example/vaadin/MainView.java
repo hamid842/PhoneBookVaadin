@@ -52,8 +52,8 @@ public class MainView extends VerticalLayout {
     public void updateList(String filter) {
         grid.setItems(customerService.findAll(null));
     }
-    public void quickSearchMethod(){
-        grid.setItems(searchForm.quickSearch(null));
+    public void quickSearchMethod(String filter ){
+        grid.setItems(searchForm.quickSearch(filter));
     }
     public void advancedSearchMethod(){
         grid.setItems(searchForm.advancedSearch(null));
