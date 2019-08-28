@@ -72,9 +72,7 @@ public class SearchForm extends FormLayout {
         //
         quickSearchButton.setIcon(VaadinIcon.SEARCH.create());
         quickSearchButton.addClickShortcut(Key.ENTER);
-        quickSearchButton.addClickListener(event -> {
-            mainView.quickSearchMethod();
-        });
+        quickSearchButton.addClickListener(event -> quickSearch());
         //
         quickSearchItem.setItems(QuickSearchItem.values());
         quickSearchItem.setPlaceholder("Search Items ...");
@@ -114,7 +112,7 @@ public class SearchForm extends FormLayout {
         advFirstName.setClearButtonVisible(true);
         advBirthDate.setClearButtonVisible(true);
         //
-        advancedSearchButton.addClickListener(e -> mainView.advancedSearchMethod());
+        advancedSearchButton.addClickListener(e -> advancedSearch());
         //
         advancedSearchArea.setSizeFull();
         advancedSearchArea.setAlignItems(FlexComponent.Alignment.END);
@@ -122,28 +120,27 @@ public class SearchForm extends FormLayout {
         advancedSearchArea.setVisible(false);
     }
 
-    public List<Customer> quickSearch() {
+    public void quickSearch() {
         List<Customer> arrayList = customerService.findAll();
+        List<Customer> result = null;
         Object currentSearchItem = quickSearchItem.getValue();
-        if (quickSearchValue.getValue() == null && quickSearchBirthDate.getValue() == null)
-            return arrayList;
         if (QuickSearchItem.FirstName.equals(currentSearchItem)) {
-            return arrayList.stream()
+            result = arrayList.stream()
                     .filter(it -> it.getFirstName().equals(quickSearchValue.getValue()))
                     .collect(Collectors.toList());
         } else if (QuickSearchItem.LastName.equals(currentSearchItem)) {
-            return arrayList.stream().
+            result = arrayList.stream().
                     filter(it -> it.getLastName().equals(quickSearchValue.getValue()))
                     .collect(Collectors.toList());
         } else if (QuickSearchItem.BirthDate.equals(currentSearchItem)) {
-            return arrayList.stream()
+            result = arrayList.stream()
                     .filter(it -> it.getBirthDate().equals(quickSearchBirthDate.getValue()))
                     .collect(Collectors.toList());
         }
-        return customerService.findAll();
+        mainView.updateList(result);
     }
 
-    public List<Customer> advancedSearch(Customer customer) {
-        return customerService.findAll();
+    public void advancedSearch() {
+        mainView.updateList(customerService.findAll());
     }
 }

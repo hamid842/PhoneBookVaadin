@@ -15,6 +15,8 @@ import com.vaadin.flow.server.PWA;
 
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
+import java.util.Collection;
+import java.util.List;
 
 @Route("")
 @PWA(name = "Project Base for Vaadin Flow", shortName = "Project Base")
@@ -49,16 +51,11 @@ public class MainView extends VerticalLayout {
         updateList(null);
     }
 
-    public void updateList(String filter) {
-        grid.setItems(customerService.findAll(null));
-    }
-
-    public void quickSearchMethod() {
-        grid.setItems(searchForm.quickSearch());
-    }
-
-    public void advancedSearchMethod() {
-        grid.setItems(searchForm.advancedSearch(null));
+    public void updateList(List<Customer> list) {
+        if (list == null)
+            grid.setItems(customerService.findAll(null));
+        else
+            grid.setItems(list);
     }
 
 }
