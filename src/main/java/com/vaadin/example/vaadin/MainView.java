@@ -36,12 +36,12 @@ public class MainView extends VerticalLayout {
             grid.asSingleSelect().clear();
             customerForm.setCustomer(new Customer());
         });
-        grid.setColumns("firstName", "lastName" , "birth date");
+        grid.setColumns("firstName", "lastName" , "birthDate");
         grid.setColumnReorderingAllowed(true);
         grid.setVisible(true);
         grid.asSingleSelect().addValueChangeListener(event ->
                 customerForm.setCustomer(grid.asSingleSelect().getValue()));
-        HorizontalLayout mainContent = new HorizontalLayout(grid, customerForm);
+        VerticalLayout mainContent = new VerticalLayout(customerForm , grid);
         mainContent.setSizeFull();
         grid.setSizeFull();
 

@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3457adea-6518-403f-a96f-39dd167feea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/EmailType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/PhoneNumberType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -42,7 +40,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1PsJxzcZFWf8x5094x7zwMAIn2s" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -64,6 +64,33 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Run On Jetty" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -75,6 +102,14 @@
       <option name="presentableId" value="Default" />
       <updated>1566657120410</updated>
     </task>
+    <task id="LOCAL-00001" summary="quick search and advanced search are completed .">
+      <created>1567086545332</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567086545332</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,5 +124,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="quick search and advanced search are completed ." />
+    <option name="LAST_COMMIT_MESSAGE" value="quick search and advanced search are completed ." />
   </component>
 </project>

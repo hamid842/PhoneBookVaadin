@@ -2,34 +2,30 @@ package com.vaadin.example.vaadin;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
-/**
- * A entity object, like in any other Java application. In a typical real world
- * application this could for example be a JPA entity.
- */
+
 @SuppressWarnings("serial")
 public class Customer implements Serializable, Cloneable {
 
     private Long id;
 
-    private String firstName = "";
+    private String firstName ;
 
-    private String lastName = "";
+    private String lastName ;
 
     private LocalDate birthDate;
 
     private CustomerStatus status;
 
-    private List<String> phoneNumber;
+    private String phoneNumber;
 
-    private List<String> email ;
+    private String email ;
 
     public Customer() {
     }
 
     public Customer(Long id, String firstName, String lastName, LocalDate birthDate,
-                    CustomerStatus status, List<String> phoneNumber, List<String> email) {
+                    CustomerStatus status, String phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -79,19 +75,19 @@ public class Customer implements Serializable, Cloneable {
         this.status = status;
     }
 
-    public List<String> getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(List<String> phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<String> getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(List<String> email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -130,5 +126,8 @@ public class Customer implements Serializable, Cloneable {
     @Override
     public String toString() {
         return firstName + " " + lastName;
+    }
+
+    public static void setPhoneNumber(Customer customer, String s) {
     }
 }
