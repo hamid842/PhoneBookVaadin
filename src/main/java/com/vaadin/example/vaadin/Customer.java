@@ -2,6 +2,7 @@ package com.vaadin.example.vaadin;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * A entity object, like in any other Java application. In a typical real world
@@ -20,7 +21,23 @@ public class Customer implements Serializable, Cloneable {
 
     private CustomerStatus status;
 
-    private String email = "";
+    private List<String> phoneNumber;
+
+    private List<String> email ;
+
+    public Customer() {
+    }
+
+    public Customer(Long id, String firstName, String lastName, LocalDate birthDate,
+                    CustomerStatus status, List<String> phoneNumber, List<String> email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.status = status;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -30,94 +47,52 @@ public class Customer implements Serializable, Cloneable {
         this.id = id;
     }
 
-    /**
-     * Get the value of email
-     *
-     * @return the value of email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * Set the value of email
-     *
-     * @param email new value of email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * Get the value of status
-     *
-     * @return the value of status
-     */
-    public CustomerStatus getStatus() {
-        return status;
-    }
-
-    /**
-     * Set the value of status
-     *
-     * @param status new value of status
-     */
-    public void setStatus(CustomerStatus status) {
-        this.status = status;
-    }
-
-    /**
-     * Get the value of birthDate
-     *
-     * @return the value of birthDate
-     */
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    /**
-     * Set the value of birthDate
-     *
-     * @param birthDate new value of birthDate
-     */
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    /**
-     * Get the value of lastName
-     *
-     * @return the value of lastName
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * Set the value of lastName
-     *
-     * @param lastName new value of lastName
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * Get the value of firstName
-     *
-     * @return the value of firstName
-     */
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * Set the value of firstName
-     *
-     * @param firstName new value of firstName
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public CustomerStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CustomerStatus status) {
+        this.status = status;
+    }
+
+    public List<String> getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(List<String> phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public List<String> getEmail() {
+        return email;
+    }
+
+    public void setEmail(List<String> email) {
+        this.email = email;
     }
 
     public boolean isPersisted() {

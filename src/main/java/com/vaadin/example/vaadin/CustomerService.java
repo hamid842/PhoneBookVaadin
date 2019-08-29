@@ -1,34 +1,29 @@
 package com.vaadin.example.vaadin;
 
 import com.vaadin.flow.component.page.Page;
+import org.springframework.stereotype.Component;
 
 import java.awt.print.Pageable;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
-/**
- * An in memory dummy "database" for the example purposes. In a typical Java app
- * this class would be replaced by e.g. EJB or a Spring based service class.
- * <p>
- * In demos/tutorials/examples, get a reference to this service class with
- * {@link CustomerService#getInstance()}.
- */
+
+@Component
 public class CustomerService {
-
+    private SearchForm s;
     private static CustomerService instance;
     private static final Logger LOGGER = Logger.getLogger(CustomerService.class.getName());
-
     private final HashMap<Long, Customer> contacts = new HashMap<>();
     private long nextId = 0;
+    private MainView mainView;
 
     private CustomerService() {
     }
 
-    /**
-     * @return a reference to an example facade for Customer objects.
-     */
+
     public static CustomerService getInstance() {
         if (instance == null) {
             instance = new CustomerService();
@@ -37,23 +32,12 @@ public class CustomerService {
         return instance;
     }
 
-    /**
-     * @return all available Customer objects.
-     */
+
     public synchronized List<Customer> findAll() {
         return findAll(null);
     }
 
 
-
-
-    /**
-     * Finds all Customer's that match given filter.
-     *
-     * @param stringFilter filter that returned objects should match or null/empty string
-     *                     if all objects should be returned.
-     * @return list a Customer objects
-     */
     public synchronized List<Customer> findAll(String stringFilter) {
         ArrayList<Customer> arrayList = new ArrayList<>();
         for (Customer contact : contacts.values()) {
@@ -77,15 +61,7 @@ public class CustomerService {
         return arrayList;
     }
 
-    /**
-     * Finds all Customer's that match given filter and limits the resultset.
-     *
-     * @param stringFilter filter that returned objects should match or null/empty string
-     *                     if all objects should be returned.
-     * @param start        the index of first result
-     * @param maxresults   maximum result count
-     * @return list a Customer objects
-     */
+
     public synchronized List<Customer> findAll(String stringFilter, int start, int maxresults) {
         ArrayList<Customer> arrayList = new ArrayList<>();
         for (Customer contact : contacts.values()) {
@@ -113,28 +89,17 @@ public class CustomerService {
         return arrayList.subList(start, end);
     }
 
-    /**
-     * @return the amount of all customers in the system
-     */
+
     public synchronized long count() {
         return contacts.size();
     }
 
-    /**
-     * Deletes a customer from a system
-     *
-     * @param value the Customer to be deleted
-     */
+
     public synchronized void delete(Customer value) {
         contacts.remove(value.getId());
     }
 
-    /**
-     * Persists or updates customer in the system. Also assigns an identifier
-     * for new Customer instances.
-     *
-     * @param entry
-     */
+
     public synchronized void save(Customer entry) {
         if (entry == null) {
             LOGGER.log(Level.SEVERE,
@@ -152,9 +117,7 @@ public class CustomerService {
         contacts.put(entry.getId(), entry);
     }
 
-    /**
-     * Sample data generation
-     */
+
     public void ensureTestData() {
         if (findAll().isEmpty()) {
             final String[] names = new String[]{"Gabrielle Patel", "Brian Robinson", "Eduardo Haugen",
@@ -175,5 +138,39 @@ public class CustomerService {
                 save(c);
             }
         }
+    }
+
+    public List<Customer> quickSearch(Object searchItem, Object searchValue) {
+        List<Customer> arrayList = findAll();
+        List<Customer> result = null;
+
+        if (QuickSearchItem.FirstName.equals(searchItem)) {
+            result = arrayList.stream().
+                    filter(it -> it.getFirstName().equals(searchValue))
+                    .collect(Collectors.toList());
+        } else if (QuickSearchItem.LastName.equals(searchItem)) {
+            result = arrayList.stream().
+                    filter(it -> it.getLastName().equals(searchValue))
+                    .collect(Collectors.toList());
+        } else if (QuickSearchItem.BirthDate.equals(searchItem)) {
+            result = arrayList.stream()
+                    .filter(it -> it.getBirthDate().equals(searchValue))
+                    .collect(Collectors.toList());
+        }
+        return result;
+    }
+
+    public List<Customer> advancedSearch(Map<String, Object> filter) {
+        List<Customer> arrayList = findAll();
+        List<Customer> result = null;
+        filter.forEach((k, v) -> {
+                    filter.get("AAAA");
+                    filter.get("BBBB");
+                    filter.get("CCCC");
+                });
+        result = arrayList.stream()
+                .filter(it->it.equals(filter))
+                .collect(Collectors.toList());
+        return result;
     }
 }

@@ -1,6 +1,5 @@
 package com.vaadin.example.vaadin;
 
-import com.helger.commons.state.ILeftRightIndicator;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -9,38 +8,27 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
 import com.vaadin.flow.component.textfield.EmailField;
-import com.vaadin.flow.component.textfield.GeneratedVaadinTextArea;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.value.ValueChangeMode;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 
-import java.awt.print.Pageable;
-import java.time.LocalDate;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SearchForm extends FormLayout {
 
-    TextField quickSearchValue = new TextField();
-    DatePicker quickSearchBirthDate = new DatePicker();
-
-    ComboBox quickSearchItem = new ComboBox();
-
-    EmailField advEmail = new EmailField("Email");
-    TextField advLastName = new TextField("Last Name");
-    TextField advFirstName = new TextField("First Name");
-    DatePicker advBirthDate = new DatePicker("Birth Date");
-
-    private MainView mainView;
+    public static TextField quickSearchValue = new TextField();
+    public static DatePicker quickSearchBirthDate = new DatePicker();
+    public static ComboBox quickSearchItem = new ComboBox();
+    private EmailField advEmail = new EmailField("Email");
+    private TextField advLastName = new TextField("Last Name");
+    private TextField advFirstName = new TextField("First Name");
+    private DatePicker advBirthDate = new DatePicker("Birth Date");
+    public MainView mainView;
     private Customer customer = new Customer();
     private CustomerService customerService = CustomerService.getInstance();
 
-    //TODO add clickListener to search button
     public SearchForm(MainView mainView) {
         this.mainView = mainView;
         //
@@ -97,8 +85,6 @@ public class SearchForm extends FormLayout {
         quickSearchArea.setAlignItems(FlexComponent.Alignment.END);
         quickSearchArea.add(quickSearchItem, quickSearchValue, quickSearchBirthDate, quickSearchButton);
         quickSearchArea.setVisible(false);
-
-
     }
 
     private void initAdvancedSearchArea(HorizontalLayout advancedSearchArea) {
@@ -121,26 +107,25 @@ public class SearchForm extends FormLayout {
     }
 
     public void quickSearch() {
-        List<Customer> arrayList = customerService.findAll();
-        List<Customer> result = null;
         Object currentSearchItem = quickSearchItem.getValue();
-        if (QuickSearchItem.FirstName.equals(currentSearchItem)) {
-            result = arrayList.stream()
-                    .filter(it -> it.getFirstName().equals(quickSearchValue.getValue()))
-                    .collect(Collectors.toList());
-        } else if (QuickSearchItem.LastName.equals(currentSearchItem)) {
-            result = arrayList.stream().
-                    filter(it -> it.getLastName().equals(quickSearchValue.getValue()))
-                    .collect(Collectors.toList());
+        List<Customer> filterList = null;
+        if (QuickSearchItem.FirstName.equals(currentSearchItem) || QuickSearchItem.LastName.equals(currentSearchItem)) {
+            filterList = customerService.quickSearch(currentSearchItem, quickSearchItem.getValue());
         } else if (QuickSearchItem.BirthDate.equals(currentSearchItem)) {
-            result = arrayList.stream()
-                    .filter(it -> it.getBirthDate().equals(quickSearchBirthDate.getValue()))
-                    .collect(Collectors.toList());
+            filterList = customerService.quickSearch(currentSearchItem, quickSearchBirthDate.getValue());
         }
-        mainView.updateList(result);
+        mainView.updateList(filterList);
     }
 
     public void advancedSearch() {
-        mainView.updateList(customerService.findAll());
+        Map<String, Object> filter = new HashMap<>();
+
+        filter.put("FirstName",advFirstName.getValue());
+        filter.put("LastName" , advLastName.getValue());
+        filter.put("Email" , advEmail.getValue());
+        filter.put("BirthDate" , advBirthDate.getValue());
+
+        List<Customer> filterList = customerService.advancedSearch(filter);
+        mainView.updateList(filterList);
     }
 }

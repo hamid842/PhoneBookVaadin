@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3457adea-6518-403f-a96f-39dd167feea6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" afterDir="false" />
     </list>
@@ -38,11 +44,12 @@
   <component name="ProjectId" id="1PsJxzcZFWf8x5094x7zwMAIn2s" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="public" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VAADIN/PhoneBookVaadin" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../VAADIN/vaadin-web-demo" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">

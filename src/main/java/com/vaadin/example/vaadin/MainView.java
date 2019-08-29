@@ -1,21 +1,14 @@
 package com.vaadin.example.vaadin;
 
-import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.button.Button;
 
-import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
-import javax.swing.table.TableRowSorter;
-import java.awt.*;
-import java.util.Collection;
 import java.util.List;
 
 @Route("")
@@ -25,37 +18,45 @@ public class MainView extends VerticalLayout {
     private CustomerService customerService = CustomerService.getInstance();
     private Grid<Customer> grid = new Grid<>(Customer.class);
     private SearchForm searchForm = new SearchForm(this);
-    private CustomerForm detailForm = new CustomerForm(this);
+    private CustomerForm customerForm = new CustomerForm(this);
     private Button addNew = new Button("New");
 
     public MainView() {
-
-
+        VerticalLayout verticalLayout = new VerticalLayout();
+        verticalLayout.setSizeFull();
+        verticalLayout.add(addNew);
+        verticalLayout.setHorizontalComponentAlignment(Alignment.END, addNew);
+        HorizontalLayout addNewAndSearchMode = new HorizontalLayout();
+        addNewAndSearchMode.add(addNew , searchForm);
+        HorizontalLayout formAndGrid = new HorizontalLayout();
+        formAndGrid.add(grid, customerForm);
         addNew.setVisible(true);
         addNew.setIcon(VaadinIcon.PLUS.create());
         addNew.addClickListener(e -> {
             grid.asSingleSelect().clear();
-            detailForm.setCustomer(new Customer());
+            customerForm.setCustomer(new Customer());
         });
-        grid.setColumns("firstName", "lastName", "birthDate", "email");
+        grid.setColumns("firstName", "lastName" , "birth date");
         grid.setColumnReorderingAllowed(true);
         grid.setVisible(true);
         grid.asSingleSelect().addValueChangeListener(event ->
-                detailForm.setCustomer(grid.asSingleSelect().getValue()));
-        HorizontalLayout mainContent = new HorizontalLayout(grid, detailForm);
+                customerForm.setCustomer(grid.asSingleSelect().getValue()));
+        HorizontalLayout mainContent = new HorizontalLayout(grid, customerForm);
         mainContent.setSizeFull();
         grid.setSizeFull();
 
-        add(searchForm, mainContent);
+        add(addNew ,searchForm, mainContent );
         setSizeFull();
         updateList(null);
+        customerForm.setCustomer(null);
     }
 
-    public void updateList(List<Customer> list) {
+    public List<Customer> updateList(List<Customer> list) {
         if (list == null)
             grid.setItems(customerService.findAll(null));
         else
             grid.setItems(list);
+        return list;
     }
 
 }
