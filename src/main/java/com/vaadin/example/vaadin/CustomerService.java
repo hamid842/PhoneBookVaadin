@@ -19,6 +19,7 @@ public class CustomerService {
     private final HashMap<Long, Customer> contacts = new HashMap<>();
     private long nextId = 0;
     private MainView mainView;
+    private Customer customer;
 
     private CustomerService() {
     }
@@ -120,19 +121,21 @@ public class CustomerService {
 
     public void ensureTestData() {
         if (findAll().isEmpty()) {
-            final String[] names = new String[]{"Gabrielle Patel", "Brian Robinson", "Eduardo Haugen",
-                    "Koen Johansen", "Alejandro Macdonald", "Angel Karlsson", "Yahir Gustavsson", "Haiden Svensson",
-                    "Emily Stewart", "Corinne Davis", "Ryann Davis", "Yurem Jackson", "Kelly Gustavsson",
-                    "Eileen Walker", "Katelyn Martin", "Israel Carlsson", "Quinn Hansson", "Makena Smith",
-                    "Danielle Watson", "Leland Harris", "Gunner Karlsen", "Jamar Olsson", "Lara Martin",
-                    "Ann Andersson", "Remington Andersson", "Rene Carlsson", "Elvis Olsen", "Solomon Olsen",
-                    "Jaydan Jackson", "Bernard Nilsen"};
+            final String[] names = new String[]{"Gabrielle Patel FRIEND 09120658719 m@m.com",
+                    "Brian Robinson PERSONAL 09011019011 d@d.com",
+                    "Eduardo Haugen COLLEAGUE 09125673456 f@d.com",
+                    "Koen Johansen OTHER 09125678976 h@s.com",
+                    "Alejandro Macdonald FRIEND 09398904567 e@r.com",
+                    "Angel Karlsson PERSONAL 09125674536 k@i.com"};
             Random r = new Random(0);
             for (String name : names) {
                 String[] split = name.split(" ");
                 Customer c = new Customer();
                 c.setFirstName(split[0]);
                 c.setLastName(split[1]);
+                c.setStatus(CustomerStatus.valueOf(split[2]));
+                c.setPhoneNumber(split[3]);
+                c.setEmail(split[4]);
                 c.setStatus(CustomerStatus.values()[r.nextInt(CustomerStatus.values().length)]);
                 c.setBirthDate(LocalDate.now().minusDays(r.nextInt(365 * 100)));
                 save(c);

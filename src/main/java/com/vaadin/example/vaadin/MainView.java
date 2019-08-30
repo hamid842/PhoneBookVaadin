@@ -27,7 +27,7 @@ public class MainView extends VerticalLayout {
         verticalLayout.add(addNew);
         verticalLayout.setHorizontalComponentAlignment(Alignment.END, addNew);
         HorizontalLayout addNewAndSearchMode = new HorizontalLayout();
-        addNewAndSearchMode.add(addNew , searchForm);
+        addNewAndSearchMode.add(addNew, searchForm);
         HorizontalLayout formAndGrid = new HorizontalLayout();
         formAndGrid.add(grid, customerForm);
         addNew.setVisible(true);
@@ -36,16 +36,16 @@ public class MainView extends VerticalLayout {
             grid.asSingleSelect().clear();
             customerForm.setCustomer(new Customer());
         });
-        grid.setColumns("firstName", "lastName" , "birthDate");
+        grid.setColumns("firstName", "lastName","status", "phoneNumber", "email", "birthDate");
         grid.setColumnReorderingAllowed(true);
         grid.setVisible(true);
         grid.asSingleSelect().addValueChangeListener(event ->
                 customerForm.setCustomer(grid.asSingleSelect().getValue()));
-        VerticalLayout mainContent = new VerticalLayout(customerForm , grid);
+        VerticalLayout mainContent = new VerticalLayout(customerForm, grid);
         mainContent.setSizeFull();
         grid.setSizeFull();
 
-        add(addNew ,searchForm, mainContent );
+        add(addNew, searchForm, mainContent);
         setSizeFull();
         updateList(null);
         customerForm.setCustomer(null);

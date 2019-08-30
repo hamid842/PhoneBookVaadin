@@ -13,13 +13,17 @@ public class Customer implements Serializable, Cloneable {
 
     private String lastName ;
 
+    private String phoneNumber;
+
+    private String email ;
+
     private LocalDate birthDate;
 
     private CustomerStatus status;
 
-    private String phoneNumber;
 
-    private String email ;
+
+
 
     public Customer() {
     }

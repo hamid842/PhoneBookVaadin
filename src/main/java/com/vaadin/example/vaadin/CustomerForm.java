@@ -90,6 +90,7 @@ public class CustomerForm extends FormLayout {
         add(firstName, lastName, birthDate, status,horizonE, horizonPh, buttons);
 
         binder.bindInstanceFields(this);
+
         save.addClickListener(e -> save());
         delete.addClickListener(e -> delete());
     }
