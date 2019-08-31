@@ -57,10 +57,14 @@ public class SearchForm extends FormLayout {
 
     private void initQuickSearchArea(HorizontalLayout quickSearchArea) {
         Button quickSearchButton = new Button("Quick search");
+        Button refreshBtn = new Button("Refresh");
         //
         quickSearchButton.setIcon(VaadinIcon.SEARCH.create());
         quickSearchButton.addClickShortcut(Key.ENTER);
         quickSearchButton.addClickListener(event -> quickSearch());
+        //
+        refreshBtn.setIcon(VaadinIcon.REFRESH.create());
+        refreshBtn.addClickListener(event -> mainView.updateList(null));
         //
         quickSearchItem.setItems(QuickSearchItem.values());
         quickSearchItem.setPlaceholder("Search Items ...");
@@ -83,12 +87,15 @@ public class SearchForm extends FormLayout {
         //
         quickSearchArea.setSizeFull();
         quickSearchArea.setAlignItems(FlexComponent.Alignment.END);
-        quickSearchArea.add(quickSearchItem, quickSearchValue, quickSearchBirthDate, quickSearchButton);
+        quickSearchArea.add(quickSearchItem, quickSearchValue, quickSearchBirthDate, quickSearchButton , refreshBtn);
         quickSearchArea.setVisible(false);
     }
 
     private void initAdvancedSearchArea(HorizontalLayout advancedSearchArea) {
         Button advancedSearchButton = new Button("Advanced search");
+        Button refreshBtn = new Button("Refresh");
+        refreshBtn.setIcon(VaadinIcon.REFRESH.create());
+        refreshBtn.addClickListener(event -> mainView.updateList(null));
         advancedSearchButton.setIcon(VaadinIcon.SEARCH.create());
         advancedSearchArea.addClickShortcut(Key.ENTER);
 
@@ -102,7 +109,7 @@ public class SearchForm extends FormLayout {
         //
         advancedSearchArea.setSizeFull();
         advancedSearchArea.setAlignItems(FlexComponent.Alignment.END);
-        advancedSearchArea.add(advFirstName, advLastName, advEmail, advBirthDate, advancedSearchButton);
+        advancedSearchArea.add(advFirstName, advLastName, advEmail, advBirthDate, advancedSearchButton , refreshBtn);
         advancedSearchArea.setVisible(false);
     }
 
@@ -110,7 +117,7 @@ public class SearchForm extends FormLayout {
         Object currentSearchItem = quickSearchItem.getValue();
         List<Customer> filterList = null;
         if (QuickSearchItem.FirstName.equals(currentSearchItem) || QuickSearchItem.LastName.equals(currentSearchItem)) {
-            filterList = customerService.quickSearch(currentSearchItem, quickSearchItem.getValue());
+            filterList = customerService.quickSearch(currentSearchItem, quickSearchValue.getValue());
         } else if (QuickSearchItem.BirthDate.equals(currentSearchItem)) {
             filterList = customerService.quickSearch(currentSearchItem, quickSearchBirthDate.getValue());
         }

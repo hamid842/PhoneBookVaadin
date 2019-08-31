@@ -31,6 +31,7 @@ public class MainView extends VerticalLayout {
         HorizontalLayout formAndGrid = new HorizontalLayout();
         formAndGrid.add(grid, customerForm);
         addNew.setVisible(true);
+        addNew.setHeight("25");
         addNew.setIcon(VaadinIcon.PLUS.create());
         addNew.addClickListener(e -> {
             grid.asSingleSelect().clear();

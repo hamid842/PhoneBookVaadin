@@ -170,10 +170,12 @@ public class CustomerService {
                     filter.get("AAAA");
                     filter.get("BBBB");
                     filter.get("CCCC");
+                    filter.get("12/10/2015");
                 });
         result = arrayList.stream()
                 .filter(it->it.equals(filter))
                 .collect(Collectors.toList());
+
         return result;
     }
 }
