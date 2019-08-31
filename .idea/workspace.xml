@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3457adea-6518-403f-a96f-39dd167feea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="3457adea-6518-403f-a96f-39dd167feea6" name="Default Changelist" comment="```quick search is modified```">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/domain/Email.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/domain/PhoneNumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/domain/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/form/CustomerForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/CustomerStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/enumeration/CustomerStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/EmailType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/enumeration/EmailType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/form/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/PhoneNumberType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/enumeration/PhoneNumberType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/QuickSearchItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/enumeration/QuickSearchItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/SearchForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vaadin/example/vaadin/form/SearchForm.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +52,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="extract.method.default.visibility" value="public" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../consuming-rest-apis" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -121,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567194400415</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="quick search is modified">
+      <created>1567242057377</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1567242057377</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +156,7 @@
     <MESSAGE value="quick search and advanced search are completed ." />
     <MESSAGE value="customer form is modified" />
     <MESSAGE value="grid is modified ." />
-    <option name="LAST_COMMIT_MESSAGE" value="grid is modified ." />
+    <MESSAGE value="quick search is modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="quick search is modified" />
   </component>
 </project>

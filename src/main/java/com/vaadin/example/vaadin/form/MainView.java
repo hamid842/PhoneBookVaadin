@@ -1,5 +1,8 @@
-package com.vaadin.example.vaadin;
+package com.vaadin.example.vaadin.form;
 
+import com.vaadin.example.vaadin.service.CustomerService;
+import com.vaadin.example.vaadin.domain.Customer;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -32,6 +35,7 @@ public class MainView extends VerticalLayout {
         formAndGrid.add(grid, customerForm);
         addNew.setVisible(true);
         addNew.setHeight("25");
+        addNew.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
         addNew.setIcon(VaadinIcon.PLUS.create());
         addNew.addClickListener(e -> {
             grid.asSingleSelect().clear();

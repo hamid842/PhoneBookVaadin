@@ -1,32 +1,29 @@
-package com.vaadin.example.vaadin;
+package com.vaadin.example.vaadin.form;
 
 
-import com.sun.org.apache.xml.internal.utils.StringToStringTable;
-import com.sun.org.apache.xml.internal.utils.StringToStringTableVector;
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.Component;
+import com.vaadin.example.vaadin.service.CustomerService;
+import com.vaadin.example.vaadin.domain.Customer;
+import com.vaadin.example.vaadin.enumeration.CustomerStatus;
+import com.vaadin.example.vaadin.enumeration.EmailType;
+import com.vaadin.example.vaadin.enumeration.PhoneNumberType;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.listbox.ListBox;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.page.Page;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.binder.PropertyId;
-import com.vaadin.flow.data.converter.StringToIntegerConverter;
-
-import java.awt.print.Pageable;
 
 public class CustomerForm extends FormLayout {
     private TextField firstName = new TextField();
     private TextField lastName = new TextField();
+    @PropertyId(value = "phoneNumber.phoneNumber")
     private TextField phoneNumber = new TextField();
+    @PropertyId(value = "email.email")
     private EmailField email = new EmailField();
     private ComboBox<CustomerStatus> status = new ComboBox<>();
     private ComboBox<PhoneNumberType> phoneNumberType = new ComboBox<>();
@@ -37,7 +34,6 @@ public class CustomerForm extends FormLayout {
     private Button addPhBtn = new Button();
     private Button addEmail = new Button();
     private Binder<Customer> binder = new Binder<>(Customer.class);
-    private Binder<HorizontalLayout> binderPh = new Binder<>(HorizontalLayout.class);
     private HorizontalLayout horizonPh = new HorizontalLayout();
 
     private MainView mainView;
@@ -64,7 +60,6 @@ public class CustomerForm extends FormLayout {
         phoneNumberType.setPlaceholder("select one ...");
         phoneNumberType.setItems(PhoneNumberType.values());
         addPhBtn.setIcon(VaadinIcon.PLUS.create());
-        addPhBtn.addClickListener(event -> horizonPh.add(addPhBtn, phoneNumberType, phoneNumber));
         addEmail.setIcon(VaadinIcon.PLUS.create());
 
         email.setPlaceholder("Email");
@@ -73,28 +68,23 @@ public class CustomerForm extends FormLayout {
         emailType.setPlaceholder("select email type ...");
         emailType.setItems(EmailType.values());
 
-        birthDate.setPlaceholder("Pick a date");
+        birthDate.setPlaceholder("Pick a date ...");
 
         status.setPlaceholder("select contact type ...");
 
         horizonPh.add(addPhBtn, phoneNumberType, phoneNumber);
 
         HorizontalLayout horizonE = new HorizontalLayout(addEmail, emailType, email);
-        //horizonPh.setBoxSizing();
+
         horizonE.setSizeFull();
-//        binder.forField(phoneNumber)
-//                .withConverter(new StringToIntegerConverter(""))
-//                .bind(Customer::getPhoneNumber, Customer::setPhoneNumber);
 
-
-        add(firstName, lastName, birthDate, status,horizonE, horizonPh, buttons);
+        add(firstName, lastName, birthDate, status, horizonE, horizonPh, buttons);
 
         binder.bindInstanceFields(this);
 
         save.addClickListener(e -> save());
         delete.addClickListener(e -> delete());
     }
-
 
 
     public void setCustomer(Customer customer) {

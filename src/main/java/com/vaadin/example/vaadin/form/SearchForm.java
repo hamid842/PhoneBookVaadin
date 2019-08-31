@@ -1,5 +1,8 @@
-package com.vaadin.example.vaadin;
+package com.vaadin.example.vaadin.form;
 
+import com.vaadin.example.vaadin.service.CustomerService;
+import com.vaadin.example.vaadin.domain.Customer;
+import com.vaadin.example.vaadin.enumeration.QuickSearchItem;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -87,7 +90,7 @@ public class SearchForm extends FormLayout {
         //
         quickSearchArea.setSizeFull();
         quickSearchArea.setAlignItems(FlexComponent.Alignment.END);
-        quickSearchArea.add(quickSearchItem, quickSearchValue, quickSearchBirthDate, quickSearchButton , refreshBtn);
+        quickSearchArea.add(quickSearchItem, quickSearchValue, quickSearchBirthDate, quickSearchButton, refreshBtn);
         quickSearchArea.setVisible(false);
     }
 
@@ -109,7 +112,7 @@ public class SearchForm extends FormLayout {
         //
         advancedSearchArea.setSizeFull();
         advancedSearchArea.setAlignItems(FlexComponent.Alignment.END);
-        advancedSearchArea.add(advFirstName, advLastName, advEmail, advBirthDate, advancedSearchButton , refreshBtn);
+        advancedSearchArea.add(advFirstName, advLastName, advEmail, advBirthDate, advancedSearchButton, refreshBtn);
         advancedSearchArea.setVisible(false);
     }
 
@@ -127,10 +130,10 @@ public class SearchForm extends FormLayout {
     public void advancedSearch() {
         Map<String, Object> filter = new HashMap<>();
 
-        filter.put("FirstName",advFirstName.getValue());
-        filter.put("LastName" , advLastName.getValue());
-        filter.put("Email" , advEmail.getValue());
-        filter.put("BirthDate" , advBirthDate.getValue());
+        filter.put("FirstName", advFirstName.getValue() == advFirstName.getEmptyValue() ? "EMPTY" : advFirstName.getValue());
+        filter.put("LastName", advLastName.getValue() == advLastName.getEmptyValue() ? "EMPTY" : advLastName.getValue());
+        filter.put("Email", advEmail.getValue() == advEmail.getEmptyValue() ? "EMPTY" : advEmail.getValue());
+        filter.put("BirthDate", advBirthDate.getValue() == advBirthDate.getEmptyValue() ? "EMPTY" : advBirthDate.getValue());
 
         List<Customer> filterList = customerService.advancedSearch(filter);
         mainView.updateList(filterList);

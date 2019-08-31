@@ -1,4 +1,6 @@
-package com.vaadin.example.vaadin;
+package com.vaadin.example.vaadin.domain;
+
+import com.vaadin.example.vaadin.enumeration.CustomerStatus;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -13,9 +15,9 @@ public class Customer implements Serializable, Cloneable {
 
     private String lastName ;
 
-    private String phoneNumber;
+    private PhoneNumber phoneNumber;
 
-    private String email ;
+    private Email email ;
 
     private LocalDate birthDate;
 
@@ -29,7 +31,7 @@ public class Customer implements Serializable, Cloneable {
     }
 
     public Customer(Long id, String firstName, String lastName, LocalDate birthDate,
-                    CustomerStatus status, String phoneNumber, String email) {
+                    CustomerStatus status, PhoneNumber phoneNumber, Email email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -79,19 +81,19 @@ public class Customer implements Serializable, Cloneable {
         this.status = status;
     }
 
-    public String getPhoneNumber() {
+    public PhoneNumber getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(PhoneNumber phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail() {
+    public Email getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 

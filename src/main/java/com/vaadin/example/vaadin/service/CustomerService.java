@@ -1,9 +1,16 @@
-package com.vaadin.example.vaadin;
+package com.vaadin.example.vaadin.service;
 
-import com.vaadin.flow.component.page.Page;
+import com.vaadin.example.vaadin.domain.Customer;
+import com.vaadin.example.vaadin.domain.Email;
+import com.vaadin.example.vaadin.domain.PhoneNumber;
+import com.vaadin.example.vaadin.enumeration.CustomerStatus;
+import com.vaadin.example.vaadin.enumeration.EmailType;
+import com.vaadin.example.vaadin.enumeration.PhoneNumberType;
+import com.vaadin.example.vaadin.enumeration.QuickSearchItem;
+import com.vaadin.example.vaadin.form.MainView;
+import com.vaadin.example.vaadin.form.SearchForm;
 import org.springframework.stereotype.Component;
 
-import java.awt.print.Pageable;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.logging.Level;
@@ -134,8 +141,10 @@ public class CustomerService {
                 c.setFirstName(split[0]);
                 c.setLastName(split[1]);
                 c.setStatus(CustomerStatus.valueOf(split[2]));
-                c.setPhoneNumber(split[3]);
-                c.setEmail(split[4]);
+                PhoneNumber p = new PhoneNumber(split[3]  , PhoneNumberType.HOME ) ;
+                c.setPhoneNumber(p);
+                Email e = new Email(split[4] , EmailType.PERSONAL) ;
+                c.setEmail(e);
                 c.setStatus(CustomerStatus.values()[r.nextInt(CustomerStatus.values().length)]);
                 c.setBirthDate(LocalDate.now().minusDays(r.nextInt(365 * 100)));
                 save(c);
@@ -165,17 +174,13 @@ public class CustomerService {
 
     public List<Customer> advancedSearch(Map<String, Object> filter) {
         List<Customer> arrayList = findAll();
-        List<Customer> result = null;
-        filter.forEach((k, v) -> {
-                    filter.get("AAAA");
-                    filter.get("BBBB");
-                    filter.get("CCCC");
-                    filter.get("12/10/2015");
-                });
-        result = arrayList.stream()
-                .filter(it->it.equals(filter))
+
+        return arrayList.stream()
+                .filter(s -> filter.get("FirstName").equals("EMPTY") || s.getFirstName().equals(filter.get("FirstName")))
+                .filter(s -> filter.get("LastName").equals("EMPTY") || s.getLastName().equals(filter.get("LastName")))
+                .filter(s -> filter.get("Email").equals("EMPTY") || s.getEmail().getEmail().equals(filter.get("Email")))
+                .filter(s -> filter.get("BirthDate").equals("EMPTY") || s.getBirthDate().equals(filter.get("BirthDate")))
                 .collect(Collectors.toList());
 
-        return result;
     }
 }
